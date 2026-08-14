@@ -1,0 +1,85 @@
+@page "/analyzing"
+@inject NavigationManager NavManager
+@implements IDisposable
+
+<div class="analyzing-screen">
+    <!-- Top Header -->
+    <div class="page-header">
+        <a href="/upload" class="back-btn">←</a>
+        <h2>AI tahlil jarayoni</h2>
+        <div style="width: 24px;"></div>
+    </div>
+
+    <!-- Markaziy Progress Circle (Aylanuvchi foiz) -->
+    <div class="progress-section">
+        <div class="circle-outer">
+            <div class="circle-inner">
+                <span class="leaf-center">🌿</span>
+                <h1 class="percentage">@progressPercentage%</h1>
+            </div>
+        </div>
+        <p class="status-title">Tahlil davom etmoqda</p>
+    </div>
+
+    <!-- Jarayon Bosqichlari (Checklist) -->
+    <div class="steps-list">
+        <div class="step-item completed">
+            <span class="step-icon">✓</span>
+            <span class="step-text">Rasm yuklandi</span>
+        </div>
+        <div class="step-item completed">
+            <span class="step-icon">✓</span>
+            <span class="step-text">Rasm sifatini tekshirish</span>
+        </div>
+        <div class="step-item active">
+            <span class="step-icon">⭕</span>
+            <span class="step-text">Kasallik belgilarini aniqlash</span>
+        </div>
+        <div class="step-item pending">
+            <span class="step-icon">⭕</span>
+            <span class="step-text">Natijani hisoblash</span>
+        </div>
+        <div class="step-item pending">
+            <span class="step-icon">⭕</span>
+            <span class="step-text">Tavsiyalarni tayyorlash</span>
+        </div>
+    </div>
+
+    <!-- Kutib turing xabarnomasi -->
+    <div class="wait-box">
+        <span class="light-icon">💡</span>
+        <div>
+            <h4>Kutib turing</h4>
+            <p>Bu jarayon odatda bir necha soniya davom etadi.</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private int progressPercentage = 0;
+    private System.Threading.Timer? timer;
+
+    protected override void OnInitialized()
+    {
+        // 0% dan 100% gacha taymer orqali avtomatik oshirib borish
+        timer = new System.Threading.Timer(async _ =>
+        {
+            if (progressPercentage < 100)
+            {
+                progressPercentage += 2;
+                await InvokeAsync(StateHasChanged);
+            }
+            else
+            {
+                timer?.Dispose();
+                // 100% bo'lgach, avtomatik 04 NATIJA SAHIFASI ga o'tadi
+                NavManager.NavigateTo("/result");
+            }
+        }, null, 0, 50); // Tezligi
+    }
+
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
+}

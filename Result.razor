@@ -1,0 +1,66 @@
+@page "/result"
+
+<div class="result-screen">
+    <!-- Top Header -->
+    <div class="page-header">
+        <a href="/" class="back-btn">←</a>
+        <h2>Tahlil natijasi</h2>
+        <button class="share-btn">🔗</button>
+    </div>
+
+    <!-- Kasallik Aniqllangan Kartochka -->
+    <div class="disease-card">
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=400" alt="Barg rasmi" />
+            <span class="badge-status">Aniqlangan</span>
+        </div>
+        <div class="disease-info">
+            <div class="disease-header">
+                <div>
+                    <span class="crop-type">Pomidor</span>
+                    <h3 class="disease-name">Early Blight (Erta kuydirgi)</h3>
+                </div>
+                <div class="accuracy-badge">91%</div>
+            </div>
+            <p class="disease-desc">Alternaria solani zamburug'i tomonidan kelib chiqadigan kasallik.</p>
+        </div>
+    </div>
+
+    <!-- Tavsiyalar Bo'limi -->
+    <div class="recommendations-section">
+        <h4 class="section-title">💡 Davolash va tavsiyalar</h4>
+        
+        <!-- 1-Tavsiya (Zudlik bilan) -->
+        <div class="rec-card warning">
+            <div class="rec-icon">⚠️</div>
+            <div>
+                <h5>Kasallangan barglarni olib tashlang</h5>
+                <p>Boshqa barglarga yuqmasligi uchun kasallangan qismlarni kesib tashlang va yoqing.</p>
+            </div>
+        </div>
+
+        <!-- 2-Tavsiya (Kimyoviy ishlov) -->
+        <div class="rec-card success">
+            <div class="rec-icon">🧪</div>
+            <div>
+                <h5>Fungitsid purkash</h5>
+                <p>Mis asosli fungitsidlar (Bordo suyuqligi yoki Ridomil Gold) bilan ishlov bering.</p>
+            </div>
+        </div>
+
+        <!-- 3-Tavsiya (Parvarish) -->
+        <div class="rec-card info">
+            <div class="rec-icon">💧</div>
+            <div>
+                <h5>Sug'orish rejimini o'zgartiring</h5>
+                <p>Barglarga suv tegizmasdan, faqat tomir ostidan sug'oring.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Action Buttons -->
+    <div class="action-buttons">
+        <a href="/upload" class="btn btn-outline">Qayta tekshirish</a>
+        <a href="/history" class="btn btn-primary">Tarixga saqlash</a>
+    </div>
+</div>

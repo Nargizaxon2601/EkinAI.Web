@@ -1,0 +1,31 @@
+@inherits LayoutComponentBase
+
+<div class="mobile-frame">
+    <!-- Asosiy Ekran Mazmuni -->
+    <main class="content-area">
+        @Body
+    </main>
+
+    <!-- Pastki Mobil Navigatsiya (Bottom Nav) -->
+    <nav class="bottom-bar">
+        <NavLink href="" class="nav-btn" Match="NavLinkMatch.All">
+            <span class="icon">🏠</span>
+            <span class="label">Bosh sahifa</span>
+        </NavLink>
+        <NavLink href="history" class="nav-btn">
+            <span class="icon">🕒</span>
+            <span class="label">Tarix</span>
+        </NavLink>
+        <NavLink href="upload" class="nav-btn-center">
+            <div class="camera-btn">📷</div>
+        </NavLink>
+        <NavLink href="tips" class="nav-btn">
+            <span class="icon">💡</span>
+            <span class="label">Maslahatlar</span>
+        </NavLink>
+        <NavLink href="profile" class="nav-btn">
+            <span class="icon">👤</span>
+            <span class="label">Profil</span>
+        </NavLink>
+    </nav>
+</div>;

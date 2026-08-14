@@ -1,0 +1,56 @@
+@page "/history"
+@inject NavigationManager NavManager
+
+<div class="history-screen">
+    <!-- Top Header -->
+    <div class="page-header">
+        <a href="/" class="back-btn">←</a>
+        <h2>Tekshiruvlar tarixi</h2>
+        <div style="width: 24px;"></div>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Tarix bo'yicha qidirish..." />
+    </div>
+
+    <!-- History List -->
+    <div class="history-list">
+        <!-- 1-Tarix kartochkasi -->
+        <div class="history-card" @onclick='() => NavManager.NavigateTo("/result")'>
+            <div class="card-thumb">
+                <img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=150" alt="barg" />
+            </div>
+            <div class="card-details">
+                <div class="card-top">
+                    <span class="crop-badge">Pomidor</span>
+                    <span class="card-date">14 Avgust, 2026</span>
+                </div>
+                <h4 class="disease-title">Early Blight (Erta kuydirgi)</h4>
+                <div class="card-bottom">
+                    <span class="accuracy-tag">91% aniqlik</span>
+                    <span class="status-tag danger">Kasallangan</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2-Tarix kartochkasi (Sog'lom namuna) -->
+        <div class="history-card">
+            <div class="card-thumb">
+                <img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=150" alt="barg" />
+            </div>
+            <div class="card-details">
+                <div class="card-top">
+                    <span class="crop-badge">Pomidor</span>
+                    <span class="card-date">10 Avgust, 2026</span>
+                </div>
+                <h4 class="disease-title">Sog'lom barg</h4>
+                <div class="card-bottom">
+                    <span class="accuracy-tag">98% aniqlik</span>
+                    <span class="status-tag success">Sog'lom</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+@page "/upload"
+@inject NavigationManager NavManager
+
+<div class="upload-screen">
+    <!-- Top Header -->
+    <div class="page-header">
+        <a href="/" class="back-btn">←</a>
+        <h2>Rasm yuklash</h2>
+        <div style="width: 24px;"></div> <!-- Joyni tenglashtirish uchun -->
+    </div>
+
+    <!-- Markaziy Rasm Yuklash Maydoni -->
+    <div class="upload-box">
+        <div class="cloud-icon">☁️</div>
+        <h3>Barg rasmini yuklang</h3>
+        <p class="sub-text">yoki kameradan suratga oling</p>
+
+        <!-- Yashil Kamera Tugmasi -->
+        <label for="fileInput" class="camera-action-btn">
+            📷 Kamerani ochish
+        </label>
+        <InputFile id="fileInput" OnChange="OnFileSelected" accept="image/*" capture="environment" hidden />
+    </div>
+
+    <!-- Galereyadan tanlash qismi -->
+    <div class="gallery-section">
+        <p class="section-title">Galereyadan tanlash</p>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=150" alt="barg" /></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=150" alt="barg" /></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=150" alt="barg" /></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=150" alt="barg" /></div>
+        </div>
+    </div>
+
+    <!-- Yaxshi sifatli rasm uchun tavsiyalar Bloki -->
+    <div class="tips-box">
+        <div class="tips-header">
+            <span class="shield-icon">🛡️</span>
+            <h4>Yaxshi sifatli rasm uchun tavsiyalar:</h4>
+        </div>
+        <ul>
+            <li>Yorug' joyda suratga oling</li>
+            <li>Barg aniq ko'rinsin</li>
+            <li>Xira xira suratllardan saqlaning</li>
+        </ul>
+    </div>
+</div>
+
+@code {
+    private void OnFileSelected(InputFileChangeEventArgs e)
+    {
+        // Rasm tanlangach, keyingi 03 AI TAHLIL JARAYONI sahifasiga o'tamiz
+        NavManager.NavigateTo("/analyzing");
+    }
+}
